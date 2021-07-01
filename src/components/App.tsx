@@ -15,7 +15,7 @@ const messages = {
   },
 };
 
-export const Home = () => {
+export const App = () => {
   const [lang, setLang] = React.useState<"en" | "hu">("en");
 
   const onHandleLang = (value: "en" | "hu") => {
