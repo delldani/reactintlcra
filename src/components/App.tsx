@@ -23,22 +23,24 @@ export const App = () => {
   };
 
   return (
-    <IntlProvider
-      messages={messages[lang]}
-      key={lang}
-      locale={lang}
-      defaultLocale="en"
-    >
-      <p>
-        <FormattedMessage
-          id="GREETING"
-          defaultMessage="Hello D!}"
-          values={{ name: "Dani" }}
-        />
-        <br />
-        <FormattedNumber value={19} style="currency" currency="EUR" />
-      </p>
-      <Content setLang={onHandleLang} />
-    </IntlProvider>
+    <div>
+      <IntlProvider
+        messages={messages[lang]}
+        key={lang}
+        locale={lang}
+        defaultLocale="en"
+      >
+        <p>
+          <FormattedMessage
+            id="GREETING"
+            defaultMessage="Hello D!}"
+            values={{ name: "Dani" }}
+          />
+          <br />
+          <FormattedNumber value={19} style="currency" currency="EUR" />
+        </p>
+        <Content setLang={onHandleLang} />
+      </IntlProvider>
+    </div>
   );
 };
