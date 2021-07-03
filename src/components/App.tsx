@@ -39,7 +39,7 @@ export const App = () => {
           <br />
           <FormattedNumber value={19} style="currency" currency="EUR" />
         </p>
-        <Content setLang={onHandleLang} />
+        <Content setLang={onHandleLang} lang={lang}/>
       </IntlProvider>
     </div>
   );

@@ -3,21 +3,21 @@ import { IntlProvider, FormattedMessage, FormattedNumber } from "react-intl";
 
 interface Props {
   setLang: (value: "en" | "hu") => void;
+  lang:string;
 }
 
 export const Content = (props: Props) => {
-  const [select, setSelect] = React.useState("en");
+  const {lang,setLang} = props;
+
   const onChange = (e: any) => {
     const value = e.target.value;
-    setSelect(value);
     console.log("onchnge", value);
-    props.setLang(value);
+    setLang(value);
   };
 
-  console.log(select);
   return (
     <div>
-      <select name="choice" onChange={onChange} value={select}>
+      <select name="choice" onChange={onChange} value={lang}>
         <option value="en">en</option>
         <option value="hu">hu</option>
       </select>
