@@ -40,9 +40,10 @@ export const App = () => {
           <FormattedMessage
             id="GREETING"
             defaultMessage="Hello D!"
-            values={{ name: "Dani" , strong: (word:string)=> <strong>{word}</strong>}}
+            values={{ name: "Dani", strong: (word:string)=> <strong>{word}</strong>}}
           />
           <br />
+        
           <FormattedNumber value={19} style="currency" currency="EUR" />
           <br />
           <FormattedPlural value={1} one="message" other="messages"  />

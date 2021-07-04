@@ -1,5 +1,5 @@
 import * as React from "react";
-import { IntlProvider, FormattedMessage, FormattedNumber } from "react-intl";
+import {useIntl, FormattedDate} from 'react-intl'
 
 interface Props {
   setLang: (value: "en" | "hu") => void;
@@ -8,6 +8,7 @@ interface Props {
 
 export const Content = (props: Props) => {
   const {lang,setLang} = props;
+  const intl = useIntl();
 
   const onChange = (e: any) => {
     const value = e.target.value;
@@ -15,12 +16,18 @@ export const Content = (props: Props) => {
     setLang(value);
   };
 
+  const  messageDescriptor = {
+    id: 'GREETING',
+    description: 'üdvözlet'
+  }
   return (
     <div>
       <select name="choice" onChange={onChange} value={lang}>
         <option value="en">en</option>
         <option value="hu">hu</option>
       </select>
+      <br/>
+     intl object: {intl.formatMessage(messageDescriptor,{ name: "Dani", strong: (word:string)=> <strong>{word}</strong>})}
     </div>
   );
 };
