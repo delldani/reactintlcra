@@ -1,13 +1,13 @@
 import * as React from "react";
-import {useIntl, FormattedDate} from 'react-intl'
+import { useIntl, FormattedDate } from "react-intl";
 
 interface Props {
   setLang: (value: "en" | "hu") => void;
-  lang:string;
+  lang: string;
 }
 
 export const Content = (props: Props) => {
-  const {lang,setLang} = props;
+  const { lang, setLang } = props;
   const intl = useIntl();
 
   const onChange = (e: any) => {
@@ -16,18 +16,18 @@ export const Content = (props: Props) => {
     setLang(value);
   };
 
-  const  messageDescriptor = {
-    id: 'GREETING',
-    description: 'üdvözlet'
-  }
+  const messageDescriptor = {
+    id: "BASIC",
+    description: "Alap",
+  };
   return (
     <div>
       <select name="choice" onChange={onChange} value={lang}>
         <option value="en">en</option>
         <option value="hu">hu</option>
       </select>
-      <br/>
-     intl object: {intl.formatMessage(messageDescriptor,{ name: "Dani", strong: (word:string)=> <strong>{word}</strong>})}
+      <br />
+      intl object: {intl.formatMessage(messageDescriptor).toUpperCase()}
     </div>
   );
 };
